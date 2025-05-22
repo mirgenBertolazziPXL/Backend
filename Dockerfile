@@ -5,7 +5,7 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 
 # Copy only the .csproj file(s) first
-COPY SolutionBackendTeam13/WebAppTeam13.csproj ./SolutionBackendTeam13/
+COPY ./WebAppTeam13.csproj ./SolutionBackendTeam13/
 
 # Restore dependencies
 RUN dotnet restore SolutionBackendTeam13/WebAppTeam13.csproj
