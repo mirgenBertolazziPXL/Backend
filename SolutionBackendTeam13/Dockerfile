@@ -5,7 +5,7 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 
 # Copy only the .csproj file first to leverage Docker caching
-COPY SolutionBackend/*.csproj ./SolutionBackend/
+COPY SolutionBackendTeam13/*.csproj ./SolutionBackendTeam13/
 
 # Restore dependencies
 RUN dotnet restore SolutionBackend/*.csproj
