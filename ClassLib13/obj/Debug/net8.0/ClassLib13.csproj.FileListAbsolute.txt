@@ -1,0 +1,13 @@
+C:\Docu\ToPublish\Backend\ClassLib13\bin\Debug\net8.0\app.config
+C:\Docu\ToPublish\Backend\ClassLib13\bin\Debug\net8.0\ClassLib13.dll.config
+C:\Docu\ToPublish\Backend\ClassLib13\bin\Debug\net8.0\ClassLib13.deps.json
+C:\Docu\ToPublish\Backend\ClassLib13\bin\Debug\net8.0\ClassLib13.dll
+C:\Docu\ToPublish\Backend\ClassLib13\bin\Debug\net8.0\ClassLib13.pdb
+C:\Docu\ToPublish\Backend\ClassLib13\obj\Debug\net8.0\ClassLib13.csproj.AssemblyReference.cache
+C:\Docu\ToPublish\Backend\ClassLib13\obj\Debug\net8.0\ClassLib13.GeneratedMSBuildEditorConfig.editorconfig
+C:\Docu\ToPublish\Backend\ClassLib13\obj\Debug\net8.0\ClassLib13.csproj.CoreCompileInputs.cache
+C:\Docu\ToPublish\Backend\ClassLib13\obj\Debug\net8.0\ClassLib13.sourcelink.json
+C:\Docu\ToPublish\Backend\ClassLib13\obj\Debug\net8.0\ClassLib13.dll
+C:\Docu\ToPublish\Backend\ClassLib13\obj\Debug\net8.0\refint\ClassLib13.dll
+C:\Docu\ToPublish\Backend\ClassLib13\obj\Debug\net8.0\ClassLib13.pdb
+C:\Docu\ToPublish\Backend\ClassLib13\obj\Debug\net8.0\ref\ClassLib13.dll

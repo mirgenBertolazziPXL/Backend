@@ -7,7 +7,7 @@ namespace WebAppTeam13
 public class AddAdminController : ControllerBase
 {
     // GET request to activate an admin account
-    [HttpGet("Admin")]
+    [HttpGet("AddAdmin")]
     public IActionResult ActivateAccount([FromQuery] string email)
     {
         if (string.IsNullOrEmpty(email))
