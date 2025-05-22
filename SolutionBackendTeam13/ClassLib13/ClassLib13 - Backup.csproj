@@ -25,13 +25,16 @@
 
   <ItemGroup>
     <!-- Add NuGet package references here -->
-    <PackageReference Include="Microsoft.Extensions.Primitives" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+     <PackageReference Include="Microsoft.Extensions.Primitives" Version="9.0.5" />
     <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
     <!-- Add other packages as needed -->
   </ItemGroup>
 <PropertyGroup>
   <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 </PropertyGroup>
+
 
 
   <ItemGroup>
