@@ -1,15 +1,17 @@
-# Use the official .NET SDK image
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-WORKDIR /app
-EXPOSE 80
-
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+# Set working directory to where the .csproj file actually is
 WORKDIR /src
-COPY . .
-RUN dotnet restore
-RUN dotnet publish -c Release -o /app/publish
 
-FROM base AS final
-WORKDIR /app
-COPY --from=build /app/publish .
-ENTRYPOINT ["dotnet", "MyApp.dll"]
+# Copy only the .csproj file first to help with Docker layer caching
+COPY SolutionBackend/*.csproj ./SolutionBackend/
+
+# Restore dependencies
+RUN dotnet restore SolutionBackend/*.csproj
+
+# Copy the rest of the source code
+COPY . .
+
+# Set the working directory to the project folder
+WORKDIR /src/SolutionBackend
+
+# Build and publish
+RUN dotnet publish -c Release -o /app/publish
