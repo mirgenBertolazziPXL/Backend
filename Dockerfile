@@ -1,7 +1,10 @@
-# Set working directory to where the .csproj file actually is
+# Use the official .NET SDK image as a build environment
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+
+# Set working directory inside container
 WORKDIR /src
 
-# Copy only the .csproj file first to help with Docker layer caching
+# Copy only the .csproj file first to leverage Docker caching
 COPY SolutionBackend/*.csproj ./SolutionBackend/
 
 # Restore dependencies
@@ -10,8 +13,16 @@ RUN dotnet restore SolutionBackend/*.csproj
 # Copy the rest of the source code
 COPY . .
 
-# Set the working directory to the project folder
+# Set working directory to actual project folder
 WORKDIR /src/SolutionBackend
 
-# Build and publish
+# Build and publish the application
 RUN dotnet publish -c Release -o /app/publish
+
+# Create runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
+WORKDIR /app
+COPY --from=build /app/publish .
+
+# Run the app
+ENTRYPOINT ["dotnet", "YourProjectName.dll"]
