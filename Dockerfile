@@ -1,27 +1,29 @@
-# Use the .NET SDK image (consider using 8.0 if your project supports it)
+# Use the .NET SDK image (recommend using 7.0 or 8.0 based on your project)
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 
 # Set working directory
 WORKDIR /src
 
-# Copy project file first (note the corrected .caproj extension)
-COPY ["WebAppTeam13.csproj", "./"]
+# Copy the solution file first (since your structure shows SolutionBackendTeam13.sln)
+COPY ["SolutionBackendTeam13.sln", "./"]
+COPY ["SolutionBackendTeam13/WebAppTeam13.csproj", "./SolutionBackendTeam13/"]
 
 # Restore dependencies
-RUN dotnet restore "WebAppTeam13.csproj"
+RUN dotnet restore "SolutionBackendTeam13.sln"
 
 # Copy everything else
 COPY . .
 
 # Build and publish
-RUN dotnet publish "WebAppTeam13.caproj" -c Release -o /app/publish
+WORKDIR /src/SolutionBackendTeam13
+RUN dotnet publish "WebAppTeam13.csproj" -c Release -o /app/publish
 
 # Runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:7.0
 WORKDIR /app
 COPY --from=build /app/publish .
 
-# Expose port (adjust if your app uses a different port)
+# Expose ports
 EXPOSE 80
 EXPOSE 443
 
