@@ -8,7 +8,7 @@ WORKDIR /src
 COPY SolutionBackendTeam13/*.csproj ./SolutionBackendTeam13/
 
 # Restore dependencies
-RUN dotnet restore SolutionBackend/*.csproj
+RUN dotnet restore SolutionBackendTeam13/WebAppTeam13.csproj
 
 # Copy the rest of the source code
 COPY . .
